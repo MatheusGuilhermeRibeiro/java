@@ -38,11 +38,11 @@ public class PrincipalComBusca {
                 break;
             }
 
-            String endereço = "https://www.omdbapi.com/?t=" + busca.replace(" ", "+") + "&apikey=4b871d09";
+            String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" ", "+") + "&apikey=4b871d09";
             try {
                 HttpClient client = HttpClient.newHttpClient();
                 HttpRequest request = HttpRequest.newBuilder()
-                        .uri(URI.create(endereço))
+                        .uri(URI.create(endereco))
                         .build();
                 HttpResponse<String> response = client
                         .send(request, HttpResponse.BodyHandlers.ofString());
@@ -52,7 +52,6 @@ public class PrincipalComBusca {
 
                 TItuloOmdb meuTituloOmdb = gson.fromJson(json, TItuloOmdb.class);
                 System.out.println(meuTituloOmdb);
-//        try {
                 Titulo meuTitulo = new Titulo(meuTituloOmdb);
                 System.out.println("Titulo ja convertido:" + meuTitulo);
 
